@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':model')
+    implementation project(':exception')
+    implementation 'org.springframework:spring-context'
+    implementation "software.amazon.awssdk:sns:${awsSdkSnsVersion}"
+}

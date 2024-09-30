@@ -1,0 +1,31 @@
+server:
+  port: ${APP_PORT}
+spring:
+  application:
+    name: "ms-funds"
+  devtools:
+    add-properties: false
+  webflux:
+    base-path: ${BASE_PATH}
+  profiles:
+    active: ${ENV}
+aws:
+  access-key-id: ${AWS_ACCESS_KEY_ID}
+  secret-access-key: ${AWS_SECRET_ACCESS_KEY}
+  region: ${AWS_REGION}
+  sns:
+    topic-arn: ${AWS_SNS_TOPIC_ARN}
+  dynamodb:
+    endpoint: "http://localhost:8000"
+    table-name: ${DYNAMODB_CLIENT_TABLE}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,prometheus"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+cors:
+  allowed-origins: "http://localhost:4200,http://localhost:8080"

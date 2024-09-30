@@ -1,0 +1,30 @@
+server:
+  port: ${APP_PORT:8080}
+spring:
+  application:
+    name: "ms-funds"
+  devtools:
+    add-properties: false
+  webflux:
+    base-path: ${BASE_PATH:/api/v1}
+aws:
+  access-key-id: ${AWS_ACCESS_KEY_ID:AKIAT7JJURGJYSFAEXHS}
+  secret-access-key: ${AWS_SECRET_ACCESS_KEY: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}
+  region: ${AWS_REGION:us-east-2}
+  sns:
+    topic-arn: ${AWS_SNS_TOPIC_ARN:arn:aws:sns:us-east-2:273354623379:FundNotifications}
+  dynamodb:
+    endpoint: "http://localhost:8000"
+    clients-table: ${DYNAMODB_CLIENT_TABLE:Clients}
+    funds-table: ${DYNAMODB_CLIENT_TABLE:Funds}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,prometheus"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+cors:
+  allowed-origins: "http://localhost:4200,http://localhost:8080"
